@@ -1,11 +1,11 @@
 :root {
     --dark-color: #020202;
-    --medium-color: #1F1F1F;
+    --medium-color: #2F2F2F;
     --light-color: #EEE;
-    --primary-color:#1184ff;
+    --primary-color:#1176ff;
 }
 html {
-    font-size:0.9rem;
+    font-size:0.95rem;
     min-height:100vh;
 }
 
@@ -60,8 +60,8 @@ body {
 
 .chat-fb-img-min {
     border-radius:100%;
-    width:2.5rem;
-    height:2.5rem;
+    width:1.8rem;
+    height:1.8rem;
     vertical-align:super;
     object-fit:cover;
 
@@ -90,7 +90,7 @@ body {
 .chat-fb-messages {
     flex: 1; /* kitölti a helyet */
     overflow-y: auto; /* görgethető legyen */
-    padding: 1rem;
+    padding:1rem;
     color:var(--light-color);
     height: calc(100vh - 12vh);
     margin-top:1.5rem;
@@ -129,8 +129,9 @@ body {
 .chat-fb-messages-text-receiver {
     background-color:var(--primary-color);
     border-radius:1rem;
-    padding:0.7rem;
-    max-width:60%;
+
+    padding:0.3rem 1rem;
+    max-width:80%;
     width:fit-content;
 
 }
@@ -138,8 +139,8 @@ body {
 .chat-fb-messages-text-sender {
     background-color:var(--medium-color);
     border-radius:1rem;
-    padding:0.7rem;
-    max-width:60%;
+    padding:0.3rem 1rem;
+    max-width:80%;
     width:fit-content;
 
 }
@@ -150,7 +151,7 @@ body {
 
 .input-container input {
   width: 100%;
-  padding: 5px 20px 5px 5px; /* hely az ikon miatt */
+  padding: 5px 20px 5px 15px; /* hely az ikon miatt */
   background-color: #2f2f2f; /* sötétszürke háttér */
   color: white;
   border-radius:2rem;

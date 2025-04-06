@@ -10,24 +10,19 @@
         <img src="{{receiver_img.url}}" class="chat-fb-img img-middle" alt="profile-picture"/>
         <span class="chat-fb-receiver-name">{{receiver_name}}</span>
         <span class="chat-fb-icon-left">
-        <i class="bi bi-telephone-fill blue" style="font-size:2rem"></i>
-        <i class="bi bi-camera-video-fill blue" style="font-size:2rem"></i>
+            <i class="bi bi-telephone-fill blue" style="font-size:1.6rem"></i>
+            <i class="bi bi-camera-video-fill blue" style="font-size:1.6rem"></i>
         </span>
     </div>
     <div class="chat-fb-container">
         <div class="chat-fb-messages" id="chat-fb-messages">
             {% for messages in chat_messages %}
                 {% if messages.msg.sender %}
-
-                     <div class="my-1" style="text-align:-webkit-right !important">
-                        <div class="chat-fb-messages-text-receiver" style="text-align:right !important">{{messages.msg.message}}</div>
+                    <div class="my-1" style="text-align:-webkit-right !important">
+                        <div class="chat-fb-messages-text-receiver" style="text-align:left !important">{{messages.msg.message}}</div>
                     </div>
-
-
-
-
                 {% else %}
-                    <div class="row my-1">
+                    <div class="row my-2" style="align-items:self-end">
                         <div class="col-1" style="padding-left:0px;padding-right:0px">
                             {% if messages.last %}
                             <img src="{{receiver_img.url}}" class="chat-fb-img-min img-middle" alt="profile-picture" />
@@ -39,7 +34,6 @@
                             </div>
                         </div>
                     </div>
-
                 {% endif %}
             {% endfor %}
         </div>
@@ -52,7 +46,7 @@
                 <div class="col">
                     <div class="input-container">
                       <input type="text" placeholder="Aa">
-                      <i class="bi bi-emoji-smile-fill"></i>
+                      <i class="bi bi-emoji-smile-fill blue"></i>
                     </div>
 
 
