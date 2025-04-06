@@ -1,0 +1,45 @@
+{% extends 'base/main.html' %}
+{% block title %} - Create FAKE Chat{% endblock title%}
+
+{% block content %}
+<div class="container my-5">
+    <form action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        <div class="chat-container">
+            <div class="chat-messages" id="chat-messages">
+                {% for msg in chat_messages %}
+                    {% if msg.sender %}
+                       <p style="text-align:right !important">{{msg.created_at|timesince}}</p>
+                        <p style="text-align:right !important">{{msg.message}}</p>
+
+                    {% else %}
+
+                        <p><strong>{{msg.chat_settings.receiver_name}} {{msg.created_at|timesince}}</strong></p>
+                        <p>{{msg.message}}</p>
+                    {% endif %}
+                {% endfor %}
+            </div>
+             <div class="chat-form">
+                {{form.as_p}}
+                <button type="submit" class="btn btn-success w-100">ADD MESSAGE</button>
+                <a href="{% url 'show_fb_message' %}" class="btn btn-primary w-100 mt-2">GENERATE FAKE FB MESSENGER</a>
+            </div>
+        </div>
+    </form>
+
+</div>
+
+<script>
+    function scrollToBottom() {
+        const messages = document.getElementById('chat-messages');
+        messages.scrollTop = messages.scrollHeight;
+    }
+
+    // Az oldal betöltésekor automatikusan legörget
+    window.addEventListener('load', scrollToBottom);
+
+    // Ha új üzenetet küldesz, újra meghívhatod a scrollToBottom()-t
+</script>
+
+{% endblock content %}

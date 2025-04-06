@@ -1,0 +1,82 @@
+{% extends 'base/main.html' %}
+{% block title %} - SHOW Fake Chatt{% endblock title%}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="chat-fb-header">
+        <span class="fb-back" style="font-size:2rem">
+            <i class="bi bi-chevron-left blue"></i>
+        </span>
+        <img src="{{receiver_img.url}}" class="chat-fb-img img-middle" alt="profile-picture"/>
+        <span class="chat-fb-receiver-name">{{receiver_name}}</span>
+        <span class="chat-fb-icon-left">
+        <i class="bi bi-telephone-fill blue" style="font-size:2rem"></i>
+        <i class="bi bi-camera-video-fill blue" style="font-size:2rem"></i>
+        </span>
+    </div>
+    <div class="chat-fb-container">
+        <div class="chat-fb-messages" id="chat-fb-messages">
+            {% for messages in chat_messages %}
+                {% if messages.msg.sender %}
+
+                     <div class="my-1" style="text-align:-webkit-right !important">
+                        <div class="chat-fb-messages-text-receiver" style="text-align:right !important">{{messages.msg.message}}</div>
+                    </div>
+
+
+
+
+                {% else %}
+                    <div class="row my-1">
+                        <div class="col-1" style="padding-left:0px;padding-right:0px">
+                            {% if messages.last %}
+                            <img src="{{receiver_img.url}}" class="chat-fb-img-min img-middle" alt="profile-picture" />
+                            {% endif %}
+                        </div>
+                        <div class="col-11">
+                            <div class="chat-fb-messages-text-sender">
+                                {{messages.msg.message}}
+                            </div>
+                        </div>
+                    </div>
+
+                {% endif %}
+            {% endfor %}
+        </div>
+         <div class="chat-fb-form">
+            <div class="row">
+                <div class="col-auto"><i class="bi bi-plus-circle-fill blue" style="font-size:1.5rem"></i></div>
+                <div class="col-auto"><i class="bi bi-camera-fill blue" style="font-size:1.5rem"></i></div>
+                <div class="col-auto"><i class="bi bi-image blue" style="font-size:1.5rem"></i></div>
+                <div class="col-auto"><i class="bi bi-mic-fill blue" style="font-size:1.5rem"></i></div>
+                <div class="col">
+                    <div class="input-container">
+                      <input type="text" placeholder="Aa">
+                      <i class="bi bi-emoji-smile-fill"></i>
+                    </div>
+
+
+                </div>
+                <div class="col-auto"><i class="bi bi-hand-thumbs-up-fill blue" style="font-size:1.5rem"></i></div>
+            </div>
+
+        </div>
+    </div>
+
+
+</div>
+
+
+<script>
+    function scrollToBottom() {
+        const messages = document.getElementById('chat-fb-messages');
+        messages.scrollTop = messages.scrollHeight;
+    }
+
+    // Az oldal betöltésekor automatikusan legörget
+    window.addEventListener('load', scrollToBottom);
+
+    // Ha új üzenetet küldesz, újra meghívhatod a scrollToBottom()-t
+</script>
+
+{% endblock content %}

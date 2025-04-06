@@ -1,0 +1,22 @@
+{% extends 'base/main.html' %}
+{% block title %} - Create User and chat settings{% endblock title%}
+
+{% block content %}
+<div class="container mt-5">
+    <form action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="card bg-dark text-light">
+            <div class="card-body">
+                <div class="card-title">SETTINGS</div>
+
+
+                {{form.as_p}}
+
+                <button type="submit" class="btn btn-success w-100">SAVE AND CONTINUE</button>
+            </div>
+        </div>
+
+    </form>
+</div>
+
+{% endblock content %}
