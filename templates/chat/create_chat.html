@@ -10,12 +10,12 @@
             <div class="chat-messages" id="chat-messages">
                 {% for msg in chat_messages %}
                     {% if msg.sender %}
-                       <p style="text-align:right !important">{{msg.created_at|timesince}}</p>
+                        <p style="text-align:right !important">{{msg.created_at|timesince}}<a href="{% url 'delete_message' msg.pk %}"><i class="bi bi-trash3-fill red"></i></a></p>
                         <p style="text-align:right !important">{{msg.message}}</p>
 
                     {% else %}
 
-                        <p><strong>{{msg.chat_settings.receiver_name}} {{msg.created_at|timesince}}</strong></p>
+                        <p><strong>{{msg.chat_settings.receiver_name}} {{msg.created_at|timesince}}</strong><a href="{% url 'delete_message' msg.pk %}"><i class="bi bi-trash3-fill red"></i></a></p>
                         <p>{{msg.message}}</p>
                     {% endif %}
                 {% endfor %}

@@ -43,6 +43,14 @@ def create_chat_settings(request):
 
     return render(request,template,context)
 
+def delete_message(request,message_id):
+    session_id = request.session.get("tmp")
+    msg = Chat.objects.get(pk=message_id)
+    if msg.chat_settings.session_id == session_id:
+        msg.delete()
+        return redirect("create_chat")
+
+
 
 def create_chat(request):
     template = "chat/create_chat.html"

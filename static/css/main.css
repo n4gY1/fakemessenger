@@ -86,7 +86,9 @@ body {
 .blue {
     color: var(--primary-color) !important;
 }
-
+.red {
+    color: #FF0000;
+}
 .chat-fb-messages {
     flex: 1; /* kitölti a helyet */
     overflow-y: auto; /* görgethető legyen */

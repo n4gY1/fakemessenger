@@ -18,13 +18,14 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path
 
-from chat.views import create_chat_settings, create_chat, show_fb_message
+from chat.views import create_chat_settings, create_chat, show_fb_message, delete_message
 from fakemessenger import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',create_chat_settings,name="create_chat_settings"),
     path('create_chat/',create_chat,name="create_chat"),
+    path('delete_message/<int:message_id>/',delete_message,name="delete_message"),
     path('show_fb_message/',show_fb_message,name="show_fb_message"),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) \
